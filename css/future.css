@@ -1,0 +1,619 @@
+
+/* ======================================
+   NEXUS COMMAND CENTER
+====================================== */
+
+.nexus-command,
+.nexus-command * {
+  box-sizing: border-box;
+}
+
+.nexus-command {
+  position: relative;
+  width: 100%;
+  margin: 0 auto 30px;
+  padding: 20px;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 35%,
+      rgba(98, 201, 255, .12),
+      transparent 65%
+    ),
+    linear-gradient(145deg, #14263a, #080e18);
+
+  border: 1px solid rgba(98, 201, 255, .65);
+
+  box-shadow:
+    0 0 15px rgba(98, 201, 255, .12),
+    inset 0 0 35px rgba(98, 201, 255, .04);
+
+  clip-path: polygon(
+    0 0,
+    calc(100% - 22px) 0,
+    100% 22px,
+    100% 100%,
+    22px 100%,
+    0 calc(100% - 22px)
+  );
+}
+
+/* TOP BAR */
+
+.nexus-topbar,
+.nexus-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  font: 10px monospace;
+  letter-spacing: 1.5px;
+  color: var(--accent);
+}
+
+.nexus-topbar {
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(98, 201, 255, .3);
+}
+
+.nexus-symbol {
+  font-size: 18px;
+  margin-right: 7px;
+}
+
+.nexus-online {
+  color: #42dfad;
+}
+
+.nexus-online i {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #42dfad;
+  box-shadow: 0 0 10px #42dfad;
+  margin-right: 5px;
+  animation: nexus-blink 2s infinite;
+}
+
+@keyframes nexus-blink {
+  50% {
+    opacity: .35;
+  }
+}
+
+/* MAIN AREA */
+
+.nexus-main {
+  padding: 22px 0;
+}
+
+.nexus-identity {
+  text-align: center;
+}
+
+.nexus-label {
+  color: var(--accent);
+  font: 10px monospace;
+  letter-spacing: 2px;
+}
+
+.nexus-identity h3 {
+  font-size: clamp(20px, 4vw, 30px);
+  letter-spacing: 3px;
+  margin: 12px 0;
+
+  text-shadow: 0 0 15px var(--accent);
+}
+
+.nexus-identity p {
+  font: 10px monospace;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+}
+
+/* SCANNER */
+
+.nexus-scanner {
+  position: relative;
+  display: grid;
+  place-items: center;
+
+  width: min(100%, 280px);
+  aspect-ratio: 1;
+  margin: 25px auto;
+
+  overflow: hidden;
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(98, 201, 255, .13),
+      rgba(10, 16, 26, .1) 65%,
+      transparent 70%
+    );
+}
+
+.scanner-ring {
+  position: absolute;
+  border: 1px solid rgba(98, 201, 255, .45);
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(98, 201, 255, .1);
+}
+
+.ring-outer {
+  width: 95%;
+  height: 95%;
+  border-style: dashed;
+  animation: scanner-rotate 35s linear infinite;
+}
+
+.ring-middle {
+  width: 75%;
+  height: 75%;
+  border-color: rgba(98, 201, 255, .7);
+  animation: scanner-rotate 25s linear infinite reverse;
+}
+
+.ring-inner {
+  width: 48%;
+  height: 48%;
+  border-style: dashed;
+}
+
+@keyframes scanner-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.scanner-crosshair {
+  position: absolute;
+  background: rgba(98, 201, 255, .2);
+}
+
+.scanner-crosshair.horizontal {
+  height: 1px;
+  width: 100%;
+}
+
+.scanner-crosshair.vertical {
+  width: 1px;
+  height: 100%;
+}
+
+.scanner-core {
+  display: grid;
+  place-content: center;
+  text-align: center;
+
+  width: 90px;
+  height: 90px;
+
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+
+  background: rgba(98, 201, 255, .1);
+
+  box-shadow:
+    0 0 20px rgba(98, 201, 255, .25),
+    inset 0 0 20px rgba(98, 201, 255, .15);
+
+  color: var(--accent);
+  font: 700 27px monospace;
+  text-shadow: 0 0 12px var(--accent);
+}
+
+.scanner-core small {
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+.scanner-label {
+  position: absolute;
+  color: var(--accent);
+  font: 8px monospace;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.label-top {
+  top: 12%;
+}
+
+.label-bottom {
+  bottom: 12%;
+}
+
+.scanner-sweep {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  top: 0;
+  left: 50%;
+  transform-origin: bottom left;
+
+  background: linear-gradient(
+    45deg,
+    transparent 45%,
+    rgba(98, 201, 255, .16) 100%
+  );
+
+  animation: scanner-rotate 5s linear infinite;
+}
+
+/* TELEMETRY */
+
+.nexus-telemetry {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 25px 0;
+}
+
+.telemetry-card {
+  min-width: 0;
+  padding: 12px 9px;
+
+  background: rgba(5, 12, 21, .8);
+  border: 1px solid rgba(98, 201, 255, .3);
+}
+
+.telemetry-card span,
+.telemetry-card small {
+  display: block;
+  font: 9px monospace;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+.telemetry-card strong {
+  display: block;
+  font: 700 25px monospace;
+  color: var(--accent);
+  margin: 8px 0;
+  text-shadow: 0 0 10px var(--accent);
+}
+
+.telemetry-bar {
+  height: 3px;
+  background: #22364c;
+  margin-top: 10px;
+}
+
+.telemetry-bar i {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+/* CONSOLE */
+
+.nexus-console {
+  background: rgba(5, 12, 21, .9);
+  border: 1px solid rgba(98, 201, 255, .35);
+}
+
+.console-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  padding: 11px;
+  background: rgba(98, 201, 255, .07);
+  border-bottom: 1px solid rgba(98, 201, 255, .25);
+
+  color: var(--accent);
+  font: 9px monospace;
+  letter-spacing: 1px;
+}
+
+.console-output {
+  padding: 12px;
+}
+
+.console-output p {
+  margin: 7px 0;
+  color: #a8bed1;
+  font: 11px monospace;
+  overflow-wrap: anywhere;
+}
+
+.console-output b {
+  color: #42dfad;
+}
+
+.console-output .console-ready b {
+  color: var(--accent);
+}
+
+/* FOOTER */
+
+.nexus-footer {
+  padding-top: 15px;
+  border-top: 1px solid rgba(98, 201, 255, .3);
+  font-size: 9px;
+}
+
+/* MOBILE */
+
+
+/* =====================================
+   NEXUS ANGULAR INTERFACE
+===================================== */
+
+.nexus-frame,
+.nexus-frame * {
+  box-sizing: border-box;
+}
+
+.nexus-frame {
+  position: relative;
+  isolation: isolate;
+
+  width: calc(100% - 24px);
+  max-width: 780px;
+  margin: 35px auto;
+  padding: clamp(14px, 4vw, 28px);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(98, 201, 255, .07),
+      transparent 40%
+    ),
+    var(--bg-elevated);
+
+  border: 1px solid var(--border);
+
+  box-shadow:
+    0 0 20px rgba(98, 201, 255, .08),
+    inset 0 0 25px rgba(98, 201, 255, .025);
+}
+
+/* OUTER ANGULAR BRACKETS */
+
+.frame-corner {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  z-index: 2;
+
+  border-color: var(--accent);
+  border-style: solid;
+
+  filter: drop-shadow(0 0 5px var(--accent));
+  pointer-events: none;
+}
+
+.frame-corner.top-left {
+  top: -1px;
+  left: -1px;
+  border-width: 3px 0 0 3px;
+}
+
+.frame-corner.top-right {
+  top: -1px;
+  right: -1px;
+  border-width: 3px 3px 0 0;
+}
+
+.frame-corner.bottom-left {
+  bottom: -1px;
+  left: -1px;
+  border-width: 0 0 3px 3px;
+}
+
+.frame-corner.bottom-right {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 3px 3px 0;
+}
+
+/* TOP HEADER */
+
+.nexus-meta,
+.nexus-header-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  color: var(--accent);
+  font: 10px monospace;
+  letter-spacing: 1.3px;
+}
+
+.nexus-meta {
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.nexus-status {
+  color: #42dfad;
+}
+
+/* TITLE FRAME */
+
+.nexus-title-frame {
+  position: relative;
+  margin: 24px 0;
+  padding: 28px 15px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(98, 201, 255, .1),
+      transparent 50%
+    );
+
+  border: 1px solid rgba(98, 201, 255, .35);
+
+  clip-path: polygon(
+    0 12px,
+    12px 0,
+    100% 0,
+    100% calc(100% - 12px),
+    calc(100% - 12px) 100%,
+    0 100%
+  );
+}
+
+.nexus-index {
+  color: var(--accent);
+  font: 10px monospace;
+  letter-spacing: 2px;
+}
+
+.nexus-title-frame h2 {
+  margin: 15px 0 0;
+  color: var(--text);
+  font-size: clamp(24px, 5vw, 38px);
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.nexus-title-frame h3 {
+  margin: 0;
+  color: var(--accent);
+  font-size: clamp(23px, 4.5vw, 34px);
+  letter-spacing: 5px;
+
+  text-shadow:
+    0 0 10px rgba(98, 201, 255, .7),
+    0 0 25px rgba(98, 201, 255, .3);
+}
+
+.nexus-title-frame p {
+  margin-top: 15px;
+  color: var(--text-muted);
+  font: 9px monospace;
+  letter-spacing: 1.5px;
+}
+
+/* INFO PANELS */
+
+.nexus-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.nexus-info {
+  position: relative;
+  min-width: 0;
+  padding: 13px 10px;
+
+  background: var(--bg-dropdown);
+  border: 1px solid var(--border);
+
+  clip-path: polygon(
+    0 0,
+    calc(100% - 10px) 0,
+    100% 10px,
+    100% 100%,
+    0 100%
+  );
+}
+
+.nexus-info span,
+.nexus-info small {
+  display: block;
+  font: 9px monospace;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+.nexus-info strong {
+  display: block;
+  margin: 9px 0;
+  color: var(--accent);
+  font: 700 19px monospace;
+  text-shadow: 0 0 10px var(--accent);
+  overflow-wrap: anywhere;
+}
+
+.nexus-header-footer {
+  padding-top: 17px;
+  margin-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 9px;
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+  .nexus-frame {
+    width: calc(100% - 20px);
+    padding: 14px;
+    margin: 20px auto;
+  }
+
+  .nexus-info-grid {
+    gap: 6px;
+  }
+
+  .nexus-info {
+    padding: 10px 6px;
+  }
+
+  .nexus-info strong {
+    font-size: 15px;
+  }
+
+  .nexus-info span,
+  .nexus-info small {
+    font-size: 8px;
+    letter-spacing: 0;
+  }
+
+  .nexus-meta,
+  .nexus-header-footer {
+    font-size: 8px;
+    letter-spacing: .5px;
+  }
+
+  .nexus-command {
+    padding: 14px;
+  }
+
+  .nexus-telemetry {
+    gap: 6px;
+  }
+
+  .telemetry-card {
+    padding: 10px 6px;
+  }
+
+  .telemetry-card span,
+  .telemetry-card small {
+    font-size: 8px;
+    letter-spacing: 0;
+  }
+
+  .telemetry-card strong {
+    font-size: 21px;
+  }
+
+  .nexus-topbar,
+  .nexus-footer {
+    font-size: 8px;
+    letter-spacing: .7px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scanner-ring,
+  .scanner-sweep,
+  .nexus-online i {
+    animation: none;
+  }
+}

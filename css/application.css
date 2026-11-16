@@ -1,0 +1,97 @@
+.application-img {
+  float: right;
+  width: 60%; /* fluid; adjust to taste */
+  max-width: 620px; /* don't let it get huge */
+  min-width: 160px; /* don't let it get tiny */
+  height: auto; /* keep aspect ratio */
+  margin: 0.25em 0 1em 0.5em; /* top right bottom left */
+  border-radius: 12px;
+}
+
+.description {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.table-container {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+table {
+  width: max-content;
+  min-width: 650x;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+thead {
+  background: var(--bg-hover);
+  color: #fff;
+}
+
+th,
+td {
+  padding: 12px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  overflow-wrap: break-word;
+}
+
+th {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--bg-muted);
+}
+
+tbody tr:hover {
+  background: var(--bg-hover);
+}
+
+.manufacturer {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.note {
+  font-size: 12px;
+  color: #777;
+  margin-top: 12px;
+  line-height: 1.5;
+}
+@media (max-width: 768px) {
+  .application-img {
+    float: none;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 1em 0;
+  }
+  .table-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 650px;
+    font-size: 13px;
+  }
+
+  th,
+  td {
+    padding: 9px 8px;
+  }
+}

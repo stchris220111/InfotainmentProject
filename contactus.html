@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Infotainment Technology
+    </title>
+    <link href="css/style.css" rel="stylesheet">
+    
+    <link href="css/contactusai.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="brand">
+            <img src="images/home.svg" alt="" class="logo">
+            <h1 class="site-title">Infotainment Technology</h1>
+        </div>
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"
+            aria-controls="horizontal">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path class="bar" d="M4 6 H20" />
+                <path class="bar" d="M4 12 H20" />
+                <path class="bar" d="M4 18 H20"></path>
+            </svg>
+        </button>
+
+        <nav id="horizontal" class="horizontal" aria-label="Main navigation">
+            <a href="history.html">History</a>
+            <a href="application.html">Application</a>
+            <a href="cost.html">Cost</a>
+            <a href="future.html">Future</a>
+            <a href="contactus.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <div class="survey-card">
+        <!-- SURVEY TERMINAL HEADER -->
+        <div class="survey-header">
+            <div class="survey-meta">
+                <span>◈ NEXUS // INFOTAINMENT TECHNOLOGY</span>
+                <span class="survey-status">● READY</span>
+            </div>
+
+            <div class="survey-title">
+                <span class="survey-index">ITC PROJECT 245 / 026-FA</span>
+                <h2>USER SURVEY</h2>
+                <p>PERSONAL INFORMATION & FEEDBACK</p>
+            </div>
+
+            <div class="survey-step-label">
+                <span>FORM PROGRESSION</span>
+                <span id="stepIndicator">01 / 03</span>
+            </div>
+        </div>
+        <!-- Progress Bar -->
+        <div class="progress-bar-container">
+            <div class="progress" id="progressBar"></div>
+        </div>
+
+        <!-- Survey Form -->
+        <form id="surveyWizard">
+            <!-- Step 1 -->
+            <div class="wizard-step active" data-step="1">
+                <h2>Personal Information</h2>
+                <p class="subtitle">Tell us a bit about yourself.</p>
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Jane Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+                </div>
+                <div class="btn-container">
+                    <button type="button" class="btn-next">Continue</button>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="wizard-step" data-step="2">
+                <h2>Rate Your Experience</h2>
+                <p class="subtitle">How was your experience with this site?</p>
+                <div class="form-group">
+                    <label for="experience">Select Your Experience</label>
+                    <select id="experience" name="experience">
+                        <option value="tolerated">Tolerated (0 stars)</option>
+                        <option value="enjoyed">Enjoyed (1-2 stars)</option>
+                        <option value="loved">Loved (3-5 stars)</option>
+                    </select>
+                </div>
+                <div class="btn-container">
+                    <button type="button" class="btn-prev">Back</button>
+                    <button type="button" class="btn-next">Continue</button>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="wizard-step" data-step="3">
+                <h2>Feedback</h2>
+                <p class="subtitle">Any final comments or suggestions?</p>
+                <div class="form-group">
+                    <label for="feedback">Your Feedback</label>
+                    <textarea id="feedback" name="feedback" placeholder="Write your thoughts here..."></textarea>
+                </div>
+                <div class="btn-container">
+                    <button type="button" class="btn-prev">Back</button>
+                    <button type="submit" class="btn-submit">Submit Survey</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Success Screen -->
+        <div class="success-message" id="successMessage">
+            <h2>Thank You!</h2>
+            <p class="subtitle">Your survey response has been successfully recorded.</p>
+        </div>
+    </div>
+
+
+
+
+ 
+<footer class="site-footer">
+
+    <div class="footer-frame">
+
+        <div class="footer-header">
+            <span>◈ NEXUS // COMMUNICATIONS</span>
+            <span class="footer-status">● CHANNEL AVAILABLE</span>
+        </div>
+
+        <div class="footer-content">
+            <span class="footer-index">TRANSMISSION / 001</span>
+
+            <h2>ESTABLISH CONTACT</h2>
+
+            <p>
+                Have questions, feedback, or suggestions?
+                Get in touch through the communication channel below.
+            </p>
+
+            <a class="footer-contact"
+               href="mailto:220111@student.macc.edu?subject=Infotainment%20Technology%20Inquiry&body=Hello%20Infotainment%20Team,%0D%0A%0D%0AI%20would%20like%20to%20inquire%20about...">
+                <span>◈</span>
+                CONTACT SYSTEM ADMINISTRATOR
+                <span>↗</span>
+            </a>
+        </div>
+
+        <div class="footer-bottom">
+            <span>NX-026 // NEXUS SYSTEMS</span>
+            <span>END OF TRANSMISSION</span>
+        </div>
+
+    </div>
+
+</footer>
+
+</body>
+
+</html>
